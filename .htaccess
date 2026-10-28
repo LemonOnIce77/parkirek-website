@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # 1. Jika orang buka namadomain.com, diam-diam ambil isi folder public
+    RewriteRule ^$ public/ [L]
+
+    # 2. Jika orang buka namadomain.com/sesuatu, arahkan juga ke dalam public
+    RewriteRule ^((?!public/).*)$ public/$1 [L,NC]
+</IfModule>
